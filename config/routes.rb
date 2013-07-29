@@ -1,6 +1,17 @@
 PhonegapRailsApp::Application.routes.draw do
   devise_for :members
 
+  namespace :api do
+    resources :users do
+      collection do
+        post :sign_in
+        post :user_register
+        post :change_password
+        post :sign_out
+      end
+    end
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
