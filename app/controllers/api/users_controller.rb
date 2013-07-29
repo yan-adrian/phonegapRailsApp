@@ -7,7 +7,7 @@ class Api::UsersController < ApplicationController
     if is_valid_user_password(user, params[:password])
       user.ensure_authentication_token!
       respond_success("access_token" => user.authentication_token,
-      :name => user.name,
+      :name => user.username,
       :uid => user.id)
     else
       respond_error(params[:type], "Invalid username or password")
@@ -58,7 +58,7 @@ class Api::UsersController < ApplicationController
 
   # Json for unsuccessfully to return data
   def respond_error(type, message, options={})
-    render :json => options.merge!(:success => 0,:type => type,:message => message).as_json
+    render :json => options.merge!(:failed => 0,:type => type,:message => message).as_json
   end
 
   def is_valid_user_password(user, ppassword)
