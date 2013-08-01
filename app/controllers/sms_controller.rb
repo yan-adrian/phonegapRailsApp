@@ -2,8 +2,7 @@ class SmsController < ApplicationController
 
   require 'socket'
 
-  def new
-  end
+  def new;end
 
   def create
     nexmoSendSms
@@ -25,9 +24,9 @@ private
     sms.create(params[:recipient], params[:message_text])
     flash[:notice] = "Message sent succesfully!"
     redirect_to :back
-  rescue Clickatell::API::Error => e
-    flash[:error] = "Clickatell API error: #{e.message}"
-    redirect_to :back
+    rescue Clickatell::API::Error => e
+      flash[:error] = "Clickatell API error: #{e.message}"
+      redirect_to :back
   end
-  
+
 end

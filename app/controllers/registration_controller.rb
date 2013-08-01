@@ -8,15 +8,10 @@ class RegistrationController < ApplicationController
 
   def create
 
-    @member = Member.new
-    @member.username = params[:member][:username]
-    @member.email = params[:member][:email]
-    @member.password = params[:member][:password]
-    @member.password_confirmation =params[:member][:password_confirmation]
-
-    @contact = Contact.new
-    @contact.mobile = params[:contact][:mobile]
-    @contact.address = params[:contact][:address]
+    @member = Member.new(params[:member])
+    
+    @contact = Contact.new(params[:contact])
+    
     @member.valid?
     
     if @member.errors.blank?

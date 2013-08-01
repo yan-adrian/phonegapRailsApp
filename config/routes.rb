@@ -16,7 +16,6 @@ PhonegapRailsApp::Application.routes.draw do
         post :sign_in
         post :user_register
         post :change_password
-        post :sign_out
       end
     end
   end

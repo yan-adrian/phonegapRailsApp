@@ -28,7 +28,7 @@ class Api::UsersController < ApplicationController
   end
 
   def change_password
-    user = Member.find_by_id_and_name(params[:uid], params[:name].downcase)
+    user = Member.find_by_id_and_username(params[:uid], params[:username].downcase)
     if user.present?
       if is_valid_user_password(user, params[:oldpassword])
         if user.update_attribute(:password, params[:new_password])
@@ -42,10 +42,6 @@ class Api::UsersController < ApplicationController
     else
       respond_error(params[:type], "User not found")
     end
-  end
-
-  def sign_out
-    sign_out(resource_name)
   end
 
   private
