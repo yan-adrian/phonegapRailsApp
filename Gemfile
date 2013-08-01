@@ -22,7 +22,19 @@ end
 
 gem 'jquery-rails'
 gem 'devise'
-gem 'mailcatcher'
+
+group :development do
+	gem 'mailcatcher'
+end
+
+# sms gateway using clickatell
+gem 'clickatell'
+
+# sms gateway using nexmo
+gem 'nexmo'
+gem 'sidekiq'
+gem 'sinatra', require: false
+gem 'slim'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

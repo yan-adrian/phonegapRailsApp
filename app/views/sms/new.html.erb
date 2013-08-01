@@ -1,0 +1,7 @@
+<%= form_tag '/sms', :method => :post do -%>
+  <p><label>Enter mobile phone:</label></p>
+  <p><%= text_field_tag "recipient" %><p>
+  <p><label>Enter message:</label></p>
+  <p><%= text_area_tag "message_text" %></p>
+  <p><%= submit_tag "Send SMS" %></p>
+<% end %>

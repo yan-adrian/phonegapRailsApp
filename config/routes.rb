@@ -1,5 +1,14 @@
 PhonegapRailsApp::Application.routes.draw do
+
+  require 'sidekiq/web'
+
+  authenticate :member do
+    mount Sidekiq::Web, at: '/sidekiq'
+  end
+
   devise_for :members
+
+  resource :sms, only: [:create, :new]
 
   namespace :api do
     resources :users do

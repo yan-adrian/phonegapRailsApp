@@ -1,4 +1,10 @@
 PhonegapRailsApp::Application.configure do
+
+  # API nexmo
+  API_KEY = "a649c220"
+  API_SECRET = "792fc32b"
+
+  API_ACCESS = "d55f38f25a30bdaa4b37e2785867b755"
   # Settings specified here will take precedence over those in config/application.rb
 
   # In the development environment your application's code is reloaded on
@@ -44,4 +50,6 @@ PhonegapRailsApp::Application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {:address => "localhost", :port => 1025}
   
+  # config to load api smsgateway nexmo
+  NEXMO_CONFIG_DEV = YAML.load(File.open(File.join(Rails.root.join, 'config', 'nexmo.yml')))
 end

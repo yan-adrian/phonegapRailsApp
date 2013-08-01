@@ -10,7 +10,7 @@ development:
   database: phonegap_rails_dev
   pool: 5
   username: root
-  password: '12345678'
+  password: 'root'
   socket: /var/run/mysqld/mysqld.sock
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

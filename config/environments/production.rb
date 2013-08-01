@@ -64,4 +64,10 @@ PhonegapRailsApp::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+
+  # config to load api smsgateway clickatell
+  CLICKATELL_CONFIG = YAML.load(File.open(File.join(Rails.root.join, 'config', 'clickatell.yml')))
+
+  # config to load api smsgateway nexmo
+  NEXMO_CONFIG = YAML.load(File.open(File.join(Rails.root.join, 'config', 'nexmo.yml')))
 end
